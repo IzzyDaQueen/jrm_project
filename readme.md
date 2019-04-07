@@ -12,3 +12,7 @@ Your objective is to cover all the **platforms** and **ladders** in ice.
 
 ## Details
 
+- There are elevators and ladders to assist you to move up and down. These also have to be covered in ice.
+- There are snowflakes as power-ups that help you cover more area with ice.
+- Jeff Frost can move up, down, left, right and can jump.
+- If you jump on the heads of the enemies which are orange, purple and green for different levels of evilness.
