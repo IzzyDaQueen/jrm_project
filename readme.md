@@ -8,7 +8,7 @@ Your avatar is a ginger bread man who has to clear mazes to reach his home.
 
 There are levels and each level gets harder.
 
-Your objective is to clear each maze in a limited time collecting the stated number of milk to open the lock of the house after you clear the maze. There are obastacles on the way such as milkmen who ask you questions. 
+Your objective is to clear each maze in a limited time collecting the stated number of milk to open the lock of the house after you clear the maze. There are obstacles on the way such as milkmen who ask you questions. 
 
 ## Details
 
