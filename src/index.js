@@ -1,6 +1,6 @@
 import Phaser from "phaser";
-import logoImg from "./assets/logo.png";
-import cookie from "src\assets\platformergraphics-candycaverns\Tiles\cookieChoco.png"
+
+let gameState = {}
 
 const config = {
   type: Phaser.AUTO,
@@ -9,26 +9,57 @@ const config = {
   height: 600,
   scene: {
     preload: preload,
-    create: create
+    create: create,
+    update: update,
   }
 };
 
 const game = new Phaser.Game(config);
 
 function preload() {
-  this.load.image("logo", logoImg);
-  this.load.image("cookie", "src\assets\platformergraphics-candycaverns\Tiles\cookieChoco.png")
+ 
 }
 
 function create() {
-  const logo = this.add.image(400, 150, "logo");
-  let cookie = this.add.image(0,0,"cookie")
-  this.tweens.add({
-    targets: logo,
-    y: 450,
-    duration: 2000,
-    ease: "Power2",
-    yoyo: true,
-    loop: -1
-  });
+  this.add.text(0,0, "Izzy is AWESOME!!", {font: "40px Times New Roman", fill: "blue", wordWrap: {width: 450, useAdvancedWrap: true}})
+  gameState["circle"] = this.add.circle(0, 500, 90, 0x00FFC5)
+  gameState["square"] = this.add.rectangle(0, 200, 100, 100, 0x00FFC5)
+
+  gameState["circle"].setInteractive()
+
+  gameState["circle"].on("pointerup", function(event) {
+
+    if (this.fillColor === 0xFFFFFF){
+      this.fillColor = 0x00FFC5
+    } else {
+      this.fillColor = 0xFFFFFF
+    }
+  })
+
+
+  gameState["square"].setInteractive()
+
+  gameState["keyboard"] = this.input.keyboard.createCursorKeys()
+
+}   
+
+function update() {
+  if (gameState["keyboard"].left.isDown){
+    gameState["square"].x -= 10
+    gameState["square"].rotation += 0.05
+  }
+  if (gameState["keyboard"].down.isDown){
+    gameState["square"].y += 10
+    gameState["square"].rotation += 0.05
+  }
+  if (gameState["keyboard"].up.isDown){
+    gameState["square"].y -= 10
+    gameState["square"].rotation += 0.05
+  }
+  if (gameState["keyboard"].right.isDown){
+    gameState["square"].x += 10
+    gameState["square"].rotation += 0.05
+  }
+  // circle.x += 1
+  // rectangle.x += 1
 }
