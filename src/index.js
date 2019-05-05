@@ -2,7 +2,7 @@ import Phaser from "phaser";
 import {Boot} from "./scenes/boot"
 import {Game } from "./scenes/game"
 
-let gameState = {}
+
 
 const config = {
   type: Phaser.AUTO,

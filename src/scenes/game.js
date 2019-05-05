@@ -1,5 +1,7 @@
 
 import { Scene } from "phaser"
+import {Thing} from "../sprites/sprite"
+import { Enemy } from "../sprites/enemy";
 
 class Game extends Scene {
     constructor () {
@@ -7,6 +9,8 @@ class Game extends Scene {
             key: "game",
             physics: {
                 default: "arcade",
+                arcade: {debug: false}
+
             }
         })
         this.background = null
@@ -21,17 +25,29 @@ class Game extends Scene {
         this.spriteGroup = this.add.group()
 
         for ( let i = 0; i < 10; i++){
-            this.spriteGroup.add(new sprite({
+            this.spriteGroup.add(new Thing({
                 scene: this,
-                x: i*5,
+                x: i*30,
                 y: 500,
-                texture: "piachu"
+                texture: "avatar1" 
+                
+    
             }))
+
         }
+        this.spriteGroup.add(new Enemy({
+            scene: this,
+            x: 500,
+            y: 500,
+            texture: "enemy1"
+        }))
     }
 
-    update() {
-
+    update(time) {
+        let sprites = this.spriteGroup.children.entries
+        for( let i = 0; i < sprites.length; i++){
+            sprites[i].update(time)
+        }
     }
 
 
