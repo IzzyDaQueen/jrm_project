@@ -17,11 +17,18 @@ class Game extends Scene {
     }
 
     create() {
+        this.cursors = this.input.keyboard.createCursorKeys();
+
         this.background = this.add.image(0, 0,"bk1")
         
         this.background.setOrigin(0,0)
         this.background.setDisplaySize(800,600)
 
+        this.char = this.add.sprite(50,50,"rts","scifiUnit_01.png")
+        this.add.sprite(100,100,"rts","scifiStructure_13.png")
+        this.add.sprite(50,50,"rts", "scifiUnit_01.png")
+        this.add.sprite(150,150,"rts", "scifiUnit_02.png")
+     
         this.spriteGroup = this.add.group()
 
         for ( let i = 0; i < 10; i++){
@@ -30,8 +37,6 @@ class Game extends Scene {
                 x: i*30,
                 y: 500,
                 texture: "avatar1" 
-                
-    
             }))
 
         }
@@ -44,10 +49,21 @@ class Game extends Scene {
     }
 
     update(time) {
-        let sprites = this.spriteGroup.children.entries
-        for( let i = 0; i < sprites.length; i++){
-            sprites[i].update(time)
+        
+        if(this.cursors.left.isDown){
+            this.char.x -= 5
         }
+        if(this.cursors.right.isDown){
+            this.char.x += 5
+        }
+        if(this.cursors.up.isDown){
+            this.char.y -= 5
+        }
+        if(this.cursors.down.isDown){
+            this.char.y += 5
+        }
+        
+        
     }
 
 
