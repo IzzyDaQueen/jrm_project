@@ -11,11 +11,10 @@ class Boot extends Scene {
 
     preload () {
 
-        console.log("LOADING")
-        this.load.image("bk1", "./src/assets/bk1.png")
-        this.load.image("avatar1", "./src/assets/avatar1.png")
-        this.load.image("enemy1", "./src/assets/enemy1.png")
-        this.load.atlasXML("rts","./src/assets/kenney_rtssci-fi/Spritesheet/scifiRTS_spritesheet.png","./src/assets/kenney_rtssci-fi/Spritesheet/scifiRTS_spritesheet.xml")      
+        console.log("LOADING...")   
+        
+        this.load.image("tiles","./src/assets/kenney_holidaypack2016/Tilesheet/voxelPack_tilesheet.png")
+        this.load.tilemapTiledJSON("izzymap","./src/assets/izzymapp.json")
     }
 
     create() {

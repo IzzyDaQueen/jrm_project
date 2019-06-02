@@ -28,16 +28,14 @@ class Game extends Scene {
         //              [0,-1,0,-1,-1],
         //              [0,-1,0,-1,-1],
         //              [0,-1,0,0,0]]
-        
-        this.map = this.make.tilemap({
-            key: "izzymap",
 
+        let map = this.make.tilemap({
+            key: "izzymap"
         })
-        console.log("test2")
-        let tiles = this.map.addTilesetImage("izzyts","tiles")
-        
-        let layer = this.map.createStaticLayer("Tile Layer 1",tiles,0,0)
-        
+
+        let tiles = map.addTilesetImage("izzyts","tiles")
+        let layer = map.createStaticLayer("TileLayer1",tiles,0,0)
+
 
         let camera = this.cameras.main
         this.controls = new Phaser.Cameras.Controls.FixedKeyControl({
@@ -48,7 +46,7 @@ class Game extends Scene {
             down: this.cursors.down,
             speed: 0.5
         })
-        camera.setBounds(0,0,this.map.widthInPixels,this.map.heightInPixels)
+        camera.setBounds(0,0,map.widthInPixels,map.heightInPixels)
     }
 
 
