@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "build": "webpack --config webpack/prod.js ",
-    "start": "webpack-dev-server --config webpack/base.js --open"
+    "start": "webpack-dev-server --config webpack/base.js --open --host 0.0.0.0"
   },
   "repository": {
     "type": "git",
@@ -33,6 +33,7 @@
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {
+    "@mikewesthad/dungeon": "^1.2.2",
     "phaser": "^3.16.2"
   }
 }

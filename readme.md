@@ -1,17 +1,55 @@
-# *This Is My First Online Project - Maze2House(Gingerbread Edition)*
+# Phaser 3 Webpack Project Template
 
-I am making a game targeting old people but youngsters and others can also play. 
+A Phaser 3 project template with ES6 support via [Babel 7](https://babeljs.io/) and [Webpack 4](https://webpack.js.org/)
+that includes hot-reloading for development and production-ready builds.
 
-## How to Play?
+Loading images via JavaScript module `import` is also supported.
 
-Your avatar is a ginger bread man who has to clear mazes to reach his home. 
+## Requirements
 
-There are levels and each level gets harder.
+[Node.js](https://nodejs.org) is required to install dependencies and run scripts via `npm`.
 
-Your objective is to clear each maze collecting the stated number of milk to open the lock of the house after you clear the maze. There are obstacles on the way such as milkmen who ask you questions. 
+## Available Commands
 
-## Details
+| Command | Description |
+|---------|-------------|
+| `npm install` | Install project dependencies |
+| `npm start` | Build project and open web server running project |
+| `npm run build` | Builds code bundle with production settings (minification, uglification, etc..) |
 
-- You have to collect milk.
-- The milk is guarded by milkmen.
-- If you answer the questions that the milkmen ask you correctly, he allows you to take the milk, pass and then he dissapears. If you answer wrongly, you cannot get the milk bottle or pass for 1 minute so you have to wait. 
+## Writing Code
+
+After cloning the repo, run `npm install` from your project directory. Then, you can start the local development
+server by running `npm start`.
+
+
+After starting the development server with `npm start`, you can edit any files in the `src` folder
+and webpack will automatically recompile and reload your server (available at `http://localhost:8080`
+by default).
+
+## Customizing Template
+
+### Babel
+You can write modern ES6+ JavaScript and Babel will transpile it to a version of JavaScript that you
+want your project to support. The targeted browsers are set in the `.babelrc` file and the default currently
+targets all browsers with total usage over "0.25%" but excludes IE11 and Opera Mini.
+
+  ```
+  "browsers": [
+    ">0.25%",
+    "not ie 11",
+    "not op_mini all"
+  ]
+  ```
+
+### Webpack
+If you want to customize your build, such as adding a new webpack loader or plugin (i.e. for loading CSS or fonts), you can
+modify the `webpack/base.js` file for cross-project changes, or you can modify and/or create
+new configuration files and target them in specific npm tasks inside of `package.json'.
+
+## Deploying Code
+After you run the `npm run build` command, your code will be built into a single bundle located at 
+`dist/bundle.min.js` along with any other assets you project depended. 
+
+If you put the contents of the `dist` folder in a publicly-accessible location (say something like `http://mycoolserver.com`), 
+you should be able to open `http://mycoolserver.com/index.html` and play your game.
